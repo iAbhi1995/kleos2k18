@@ -2,6 +2,7 @@ package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfe
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -23,6 +24,8 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.mursaat.extendedtextview.AnimatedGradientTextView;
+import com.squareup.picasso.Picasso;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.R;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.models.Question;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.models.User;
@@ -52,6 +55,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
     ImageView img, img2;
     Toolbar toolbar;
     int pos;
+    Typeface cav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,9 @@ public class QuestionActivity extends YouTubeBaseActivity {
         setContentView(R.layout.activity_question);
         customType(this, "fadein-to-fadeout");
         userPreferences = new UserPreferences(this);
+        cav = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams.ttf");
+
+        AnimatedGradientTextView textView = findViewById(R.id.kleos);textView.setTypeface(cav);
 
         img = (ImageView) findViewById(R.id.img);
         img2 = (ImageView) findViewById(R.id.img2);
@@ -66,13 +73,12 @@ public class QuestionActivity extends YouTubeBaseActivity {
         ImageZoomHelper.setViewZoomable(findViewById(R.id.img));
         ImageZoomHelper.setViewZoomable(findViewById(R.id.img2));
         videoView = (YouTubePlayerView) findViewById(R.id.video);
-        tv = (TextView) findViewById(R.id.questionText);
-        tv1 = (TextView) findViewById(R.id.kleos);
-        til = (TextInputLayout) findViewById(R.id.til);
-        ed = (EditText) findViewById(R.id.answer);
+        tv = (TextView) findViewById(R.id.questionText);tv.setTypeface(cav);
+        til = (TextInputLayout) findViewById(R.id.til);til.setTypeface(cav);
+        ed = (EditText) findViewById(R.id.answer);ed.setTypeface(cav);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ques1);
-        button = (Button) findViewById(R.id.submitB);
-        dialer = (Button) findViewById(R.id.dialer);
+        button = (Button) findViewById(R.id.submitB);button.setTypeface(cav);
+        dialer = (Button) findViewById(R.id.dialer);dialer.setTypeface(cav);
         Slice slice = new Slice(button);
         slice.setRadius(8f);
         slice.setColor(Color.parseColor("#00BB84"));
@@ -80,11 +86,11 @@ public class QuestionActivity extends YouTubeBaseActivity {
         slice2.setRadius(8f);
         slice2.setColor(Color.parseColor("#00BB84"));
 
-        textView1 = (TextView) findViewById(R.id.t1);
-        textView2 = (TextView) findViewById(R.id.t2);
-        textView3 = (TextView) findViewById(R.id.t3);
-        textView4 = (TextView) findViewById(R.id.t4);
-        textView5 = (TextView) findViewById(R.id.t5);
+        textView1 = (TextView) findViewById(R.id.t1);textView1.setTypeface(cav);
+        textView2 = (TextView) findViewById(R.id.t2);textView2.setTypeface(cav);
+        textView3 = (TextView) findViewById(R.id.t3);textView3.setTypeface(cav);
+        textView4 = (TextView) findViewById(R.id.t4);textView4.setTypeface(cav);
+        textView5 = (TextView) findViewById(R.id.t5);textView5.setTypeface(cav);
         toolbar=(Toolbar)findViewById(R.id.toolbarAnswer);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +130,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 3:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.q3a);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 img2.setImageResource(R.drawable.q3b);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
@@ -134,7 +140,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 4:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.q4);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
                 img2.setVisibility(View.GONE);
@@ -145,7 +151,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 5:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.q5);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 img2.setImageResource(R.drawable.q5b);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
@@ -155,7 +161,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 6:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.q6);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
                 img2.setVisibility(View.GONE);
@@ -171,7 +177,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 7:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.q7);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
                 img2.setVisibility(View.GONE);
@@ -204,7 +210,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 10:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.q10);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
                 img2.setVisibility(View.GONE);
@@ -215,7 +221,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
             case 11:
                 videoView.setVisibility(View.GONE);
                 videoView.setEnabled(false);
-                img.setImageResource(R.drawable.box);
+                Picasso.get().load(q.image).placeholder(R.drawable.temp_photo).into(img);
                 linearLayout.setVisibility(View.GONE);
                 linearLayout.setEnabled(false);
                 img2.setVisibility(View.GONE);
@@ -237,7 +243,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
                 break;
         }
 
-        tv1.setText(q.title);
+        textView.setText(q.title);
         tv.setText(q.question);
 
         int level = Integer.parseInt(userPreferences.getLevel());
@@ -359,6 +365,7 @@ public class QuestionActivity extends YouTubeBaseActivity {
                     .position(ViewTooltip.Position.TOP)
                     .text("This Field Can't be Empty.")
                     .textColor(Color.WHITE)
+                    .textTypeFace(cav)
                     .color(Color.parseColor("#00BB84"))
                     .padding(2, 2, 2, 2)
                     .corner(15)

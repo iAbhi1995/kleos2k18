@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#15161d"
-            app:navigationIcon="@drawable/ic_back"
+            app:navigationIcon="@drawable/backbutton"
             app:popupTheme="@style/Theme.AppCompat"
 
             >

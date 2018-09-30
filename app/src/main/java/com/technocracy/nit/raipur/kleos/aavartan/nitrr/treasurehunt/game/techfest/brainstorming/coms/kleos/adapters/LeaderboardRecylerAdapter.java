@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -60,9 +61,10 @@ public class LeaderboardRecylerAdapter extends RecyclerView.Adapter<LeaderboardR
         LinearLayout main;
         public LeaderBoardViewHolder(View itemView) {
             super(itemView);
+            Typeface cav = Typeface.createFromAsset(ct.getAssets(), "fonts/caviardreams.ttf");
             main = itemView.findViewById(R.id.leaderboardMain);
-            name = itemView.findViewById(R.id.hinttv1);
-            level = itemView.findViewById(R.id.leaderboardlevelTV);
+            name = itemView.findViewById(R.id.hinttv1);name.setTypeface(cav);
+            level = itemView.findViewById(R.id.leaderboardlevelTV);level.setTypeface(cav);
         }
     }
 }

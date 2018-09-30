@@ -1,12 +1,14 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.activities;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.mursaat.extendedtextview.AnimatedGradientTextView;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.R;
 
 import java.util.Random;
@@ -17,28 +19,31 @@ public class question6_dialer extends Activity  implements View.OnClickListener{
     private Button B1,B2,B3,B4,B5,B6,B7,B8,B9,B10;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)  {
+        Typeface cav = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams.ttf");
+
+        AnimatedGradientTextView textView = findViewById(R.id.kleos);textView.setTypeface(cav);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qn6);
-        tv1 = findViewById(R.id.tv1);
-        B1 = findViewById(R.id.B1);
-        tv2 = findViewById(R.id.tv2);
-        B2 = findViewById(R.id.B2);
-        tv3 = findViewById(R.id.tv3);
-        B3 = findViewById(R.id.B3);
-        tv4 = findViewById(R.id.tv4);
-        B4 = findViewById(R.id.B4);
-        tv5 = findViewById(R.id.tv5);
-        B5 = findViewById(R.id.B5);
-        tv6 = findViewById(R.id.tv6);
-        B6 = findViewById(R.id.B6);
-        tv7 = findViewById(R.id.tv7);
-        B7 = findViewById(R.id.B7);
-        tv8 = findViewById(R.id.tv8);
-        B8 = findViewById(R.id.B8);
-        tv9 = findViewById(R.id.tv9);
-        B9 = findViewById(R.id.B9);
-        tv10 = findViewById(R.id.tv10);
-        B10 = findViewById(R.id.B10);
+        tv1 = findViewById(R.id.tv1);tv1.setTypeface(cav);
+        B1 = findViewById(R.id.B1);B1.setTypeface(cav);
+        tv2 = findViewById(R.id.tv2);tv2.setTypeface(cav);
+        B2 = findViewById(R.id.B2);B2.setTypeface(cav);
+        tv3 = findViewById(R.id.tv3);tv3.setTypeface(cav);
+        B3 = findViewById(R.id.B3);B3.setTypeface(cav);
+        tv4 = findViewById(R.id.tv4);tv4.setTypeface(cav);
+        B4 = findViewById(R.id.B4);B5.setTypeface(cav);
+        tv5 = findViewById(R.id.tv5);tv5.setTypeface(cav);
+        B5 = findViewById(R.id.B5);B5.setTypeface(cav);
+        tv6 = findViewById(R.id.tv6);tv6.setTypeface(cav);
+        B6 = findViewById(R.id.B6);B6.setTypeface(cav);
+        tv7 = findViewById(R.id.tv7);tv7.setTypeface(cav);
+        B7 = findViewById(R.id.B7);B7.setTypeface(cav);
+        tv8 = findViewById(R.id.tv8);tv8.setTypeface(cav);
+        B8 = findViewById(R.id.B8);B8.setTypeface(cav);
+        tv9 = findViewById(R.id.tv9);tv9.setTypeface(cav);
+        B9 = findViewById(R.id.B9);B9.setTypeface(cav);
+        tv10 = findViewById(R.id.tv10);tv10.setTypeface(cav);
+        B10 = findViewById(R.id.B10);B10.setTypeface(cav);
         B1.setOnClickListener(this);
         B2.setOnClickListener(this);
         B3.setOnClickListener(this);
