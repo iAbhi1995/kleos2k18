@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.fragments;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -42,7 +43,8 @@ public class LeaderboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_leaderboard_page, container, false);
         AVLoadingIndicatorView indicatorView = view.findViewById(R.id.avi);
         indicatorView.show();
-        TextView def = view.findViewById(R.id.defaultTV);
+        Typeface cav = Typeface.createFromAsset(getContext().getAssets(), "fonts/caviardreams.ttf");
+        TextView def = view.findViewById(R.id.defaultTV);def.setTypeface(cav);
         def.setVisibility(View.INVISIBLE);
         RecyclerView rv = view.findViewById(R.id.leaderboadRV);
         rv.setVisibility(View.INVISIBLE);

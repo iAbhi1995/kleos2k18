@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.fragments;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -46,10 +47,11 @@ public class HintsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         UserPreferences userPreferences = new UserPreferences(getContext());
+        Typeface cav = Typeface.createFromAsset(getContext().getAssets(), "fonts/caviardreams.ttf");
         View view = inflater.inflate(R.layout.fragment_hints_page, container, false);
         AVLoadingIndicatorView indicatorView = view.findViewById(R.id.avi1);
         indicatorView.show();
-        TextView def = view.findViewById(R.id.defaultTV);
+        TextView def = view.findViewById(R.id.defaultTV);def.setTypeface(cav);
         def.setVisibility(View.INVISIBLE);
         RecyclerView rv = view.findViewById(R.id.rv);
         rv.setVisibility(View.INVISIBLE);

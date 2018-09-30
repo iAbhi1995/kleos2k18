@@ -2,6 +2,7 @@ package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfe
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.github.florent37.viewtooltip.ViewTooltip;
+import com.mursaat.extendedtextview.AnimatedGradientTextView;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.R;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.models.User;
 import com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.restapi.ApiBase;
@@ -40,8 +42,8 @@ public class ProfileSetupActivity extends AppCompatActivity {
     UserPreferences userPreferences;
     AVLoadingIndicatorView indicatorView;
     CircleImageView circleImageView;
-    File file;
     ApiEndpoints apiBase;
+    Typeface cav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,17 +51,20 @@ public class ProfileSetupActivity extends AppCompatActivity {
         customType(this, "fadein-to-fadeout");
 
         userPreferences = new UserPreferences(this);
+        cav = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams.ttf");
 
-        firstname = (EditText) findViewById(R.id.firstName);
-        lastname = (EditText) findViewById(R.id.lastName);
-        college = (EditText)findViewById(R.id.college);
-        email = (EditText) findViewById(R.id.email);
+        AnimatedGradientTextView textView = findViewById(R.id.kleos);textView.setTypeface(cav);
+
+        firstname = (EditText) findViewById(R.id.firstName);firstname.setTypeface(cav);
+        lastname = (EditText) findViewById(R.id.lastName);lastname.setTypeface(cav);
+        college = (EditText)findViewById(R.id.college);college.setTypeface(cav);
+        email = (EditText) findViewById(R.id.email);email.setTypeface(cav);
         circleImageView = (CircleImageView)findViewById(R.id.drawerImg);
 
         indicatorView = (AVLoadingIndicatorView)findViewById(R.id.avi);
         indicatorView.hide();
 
-        submit = (Button)findViewById(R.id.submit);
+        submit = (Button)findViewById(R.id.submit);submit.setTypeface(cav);
         Slice slice = new Slice(submit);
         slice.setRadius(8f);
         slice.setColor(Color.parseColor("#00BB84"));
@@ -74,6 +79,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
                 .align(ViewTooltip.ALIGN.CENTER)
                 .position(ViewTooltip.Position.TOP)
                 .text(message)
+                .textTypeFace(cav)
                 .textColor(Color.WHITE)
                 .color(Color.parseColor("#00BB84"))
                 .padding(2,2,2,2)

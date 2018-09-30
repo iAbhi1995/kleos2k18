@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.activities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class SplashScreen extends AwesomeSplash  {
         configSplash.setTitleTextSize(40f);
         configSplash.setAnimTitleDuration(3000);
         configSplash.setAnimTitleTechnique(Techniques.FadeIn);
-//        configSplash.setTitleFont("fonts/caviardreams.ttf");
+        configSplash.setTitleFont("fonts/caviardreams.ttf");
 
 
     }

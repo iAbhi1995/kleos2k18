@@ -2,6 +2,7 @@ package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfe
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -44,6 +46,7 @@ public class OtpActivity extends AppCompatActivity {
     UserPreferences userPreferences;
     AVLoadingIndicatorView indicatorView;
     ApiEndpoints apiBase;
+    Typeface cav;
     CountdownView mCvCountdownView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +55,19 @@ public class OtpActivity extends AppCompatActivity {
         customType(this, "fadein-to-fadeout");
 
         userPreferences = new UserPreferences(this);
+        cav = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams.ttf");
+        Typeface kat = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/katfyred.ttf");
+        Typeface cav2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams_bold.ttf");
 
-        AnimatedGradientTextView textView = findViewById(R.id.kleos);
+        TextView tv1 = findViewById(R.id.textView);tv1.setTypeface(cav2);
+        TextView tv2 = findViewById(R.id.textView2);tv2.setTypeface(cav);
+
+        AnimatedGradientTextView textView = findViewById(R.id.kleos);textView.setTypeface(kat);
         textView.setTextSize(getResources().getDimension(R.dimen.textsize));
 
-        resend = findViewById(R.id.resend);
+        resend = findViewById(R.id.resend);resend.setTypeface(cav);
         resend.setVisibility(View.INVISIBLE);
-        otpButton = findViewById(R.id.otpButton);
+        otpButton = findViewById(R.id.otpButton);otpButton.setTypeface(cav);
         Slice slice = new Slice(resend);
         slice.setRadius(8f);
         slice.setColor(Color.parseColor("#00BB84"));
@@ -69,7 +78,7 @@ public class OtpActivity extends AppCompatActivity {
         indicatorView = findViewById(R.id.aviOtp);
         indicatorView.hide();
 
-        otpEdit = findViewById(R.id.otpEditText);
+        otpEdit = findViewById(R.id.otpEditText);otpEdit.setTypeface(cav);
 
         apiBase = ApiBase.getClient().create(ApiEndpoints.class);
 
@@ -137,6 +146,7 @@ public class OtpActivity extends AppCompatActivity {
                 .corner(15)
                 .arrowWidth(15)
                 .arrowHeight(15)
+                .textTypeFace(cav)
                 .distanceWithView(0)
                 .show();
     }
