@@ -2,6 +2,7 @@ package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfe
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -43,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
  AVLoadingIndicatorView indicatorView;
  UserPreferences userPreferences;
  ApiEndpoints apiBase;
+    TextView tv1,tv2;
+    Typeface cav,cav2;
+    Typeface kat;
     AnimatedGradientTextView textView;
     boolean doubleBackToExitPressedOnce = false;
 
@@ -51,30 +56,39 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         customType(this, "fadein-to-fadeout");
+        cav = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams.ttf");
+        cav2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams_bold.ttf");
+        kat = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/katfyred.ttf");
 
         userPreferences = new UserPreferences(this);
 
+        tv1 = findViewById(R.id.textView);tv1.setTypeface(cav2);
+        tv2 = findViewById(R.id.textView2);tv2.setTypeface(cav);
+
         textView = findViewById(R.id.kleos);
-//        textView.setTextSize(getResources().getDimension(R.dimen.textsize));
+        textView.setTypeface(kat);
+        textView.setTextSize(getResources().getDimension(R.dimen.textsize));
 
         signupPage = findViewById(R.id.signupButton);
+        signupPage.setTypeface(cav);
         loginPage = findViewById(R.id.loginButton);
+        loginPage.setTypeface(cav);
 
         indicatorView = findViewById(R.id.avi);
         indicatorView.hide();
 
-        phone = findViewById(R.id.phoneNo);
-        pass = findViewById(R.id.pass);
-        confirmPass = findViewById(R.id.confirmPass);
+        phone = findViewById(R.id.phoneNo);phone.setTypeface(cav);
+        pass = findViewById(R.id.pass);pass.setTypeface(cav);
+        confirmPass = findViewById(R.id.confirmPass);confirmPass.setTypeface(cav);
 
-        passH = findViewById(R.id.passHint);
-        confirmH = findViewById(R.id.confirmHint);
-        phoneH = findViewById(R.id.phoneHint);
+        passH = findViewById(R.id.passHint);passH.setTypeface(cav);
+        confirmH = findViewById(R.id.confirmHint);passH.setTypeface(cav);
+        phoneH = findViewById(R.id.phoneHint);phoneH.setTypeface(cav);
 
         signupPage.setTextColor(Color.parseColor("#FFFFFF"));
         loginPage.setTextColor(Color.parseColor("#FFFFFF"));
 
-        signup = findViewById(R.id.signup);
+        signup = findViewById(R.id.signup);signup.setTypeface(cav);
 
         Slice slice = new Slice(signup);
         slice.setRadius(8f);
@@ -98,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                 .arrowWidth(15)
                 .arrowHeight(15)
                 .distanceWithView(0)
+                .textTypeFace(cav)
                 .show();
     }
 

@@ -8,6 +8,21 @@
 
     tools:context=".activities.SponsorsActivity">
 
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/answerAppBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="167dp"
+        android:layout_marginTop="277dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="267dp"
+        app:indicatorColor="@color/colorPrimaryDark"
+        app:indicatorName="LineScaleIndicator" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/answerAppBar"
         android:layout_width="match_parent"
@@ -32,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
                 android:onClick="exit"
-                app:srcCompat="@drawable/ic_back"
+                app:srcCompat="@drawable/backbutton"
                 android:layout_marginEnd="20dp"/>
 
             <com.mursaat.extendedtextview.AnimatedGradientTextView
@@ -65,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="201dp"
         android:text="Coming Soon..."
         android:textColor="#ffffff"
         android:textSize="40sp"
@@ -92,5 +107,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mainrv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/answerAppBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp" />
+
 
 </RelativeLayout>

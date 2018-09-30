@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -82,9 +83,10 @@ public class HintsRecyclerAdapter extends RecyclerView.Adapter<HintsRecyclerAdap
         RelativeLayout main;
         public HintViewHolder(View itemView) {
             super(itemView);
+            Typeface cav = Typeface.createFromAsset(ct.getAssets(), "fonts/caviardreams.ttf");
             main = (RelativeLayout)itemView.findViewById(R.id.hint);
-            title=(TextView)itemView.findViewById(R.id.hinttv1);
-            hint=(TextView)itemView.findViewById(R.id.hinttv2);
+            title=(TextView)itemView.findViewById(R.id.hinttv1);title.setTypeface(cav);
+            hint=(TextView)itemView.findViewById(R.id.hinttv2);hint.setTypeface(cav);
         }
     }
 }

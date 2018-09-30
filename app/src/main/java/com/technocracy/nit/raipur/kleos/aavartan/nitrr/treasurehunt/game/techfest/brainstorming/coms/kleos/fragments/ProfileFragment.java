@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.fragments;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -46,14 +47,14 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         UserPreferences userPreferences=new UserPreferences(getContext());
-
+        Typeface cav = Typeface.createFromAsset(getContext().getAssets(), "fonts/caviardreams.ttf");
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         this.depth = DepthProvider.getDepth(view);
-        TextView nameV = view.findViewById(R.id.nameV);
-        TextView emailV = view.findViewById(R.id.emailV);
-        TextView phoneV = view.findViewById(R.id.phoneV);
-        TextView collegeV = view.findViewById(R.id.collegeV);
-        TextView level = view.findViewById(R.id.levelV);
+        TextView nameV = view.findViewById(R.id.nameV);nameV.setTypeface(cav);
+        TextView emailV = view.findViewById(R.id.emailV);emailV.setTypeface(cav);
+        TextView phoneV = view.findViewById(R.id.phoneV);phoneV.setTypeface(cav);
+        TextView collegeV = view.findViewById(R.id.collegeV);collegeV.setTypeface(cav);
+        TextView level = view.findViewById(R.id.levelV);level.setTypeface(cav);
         AVLoadingIndicatorView avi = view.findViewById(R.id.avi);
         CircleImageView circleImageView = view.findViewById(R.id.profile_image);
 
@@ -85,7 +86,6 @@ public class ProfileFragment extends Fragment {
                         phoneV.setText(String.valueOf(response.body().username));
                         emailV.setText(String.valueOf(response.body().email));
                         level.setText("Level ".concat(String.valueOf(response.body().level)));
-//                        Log.d("Image","String "+userPreferences.getProfileImage().toString());
                         circleImageView.setImageURI(userPreferences.getProfileImage());
                     }
                     else{
@@ -119,7 +119,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        //mListener = null;
     }
 
 

@@ -5,6 +5,7 @@ package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfe
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -74,6 +75,15 @@ public class QuestionRecyclerAdapter extends RecyclerView.Adapter<QuestionRecycl
                         }
                         holder.questionTextView.setText(response.body().title);
                         holder.questionContent.setText(response.body().question);
+                        holder.questionContent.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(ct, QuestionActivity.class);
+                                i.putExtra("question",response.body());
+                                i.putExtra("id",position+1);
+                                ct.startActivity(i);
+                            }
+                        });
                         holder.questionCard.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -118,10 +128,11 @@ public class QuestionRecyclerAdapter extends RecyclerView.Adapter<QuestionRecycl
         AVLoadingIndicatorView avi;
         public QuestionViewHolder(View itemView) {
             super(itemView);
+            Typeface cav = Typeface.createFromAsset(ct.getAssets(), "fonts/caviardreams.ttf");
             questionCard = itemView.findViewById(R.id.questionCard);
             avi = itemView.findViewById(R.id.avi);
-            questionTextView = itemView.findViewById(R.id.questionTitle);
-            questionContent = itemView.findViewById(R.id.questionContent);
+            questionTextView = itemView.findViewById(R.id.questionTitle);questionTextView.setTypeface(cav);
+            questionContent = itemView.findViewById(R.id.questionContent);questionContent.setTypeface(cav);
             bookmark = itemView.findViewById(R.id.bookmark);
         }
 

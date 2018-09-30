@@ -1,6 +1,7 @@
 package com.technocracy.nit.raipur.kleos.aavartan.nitrr.treasurehunt.game.techfest.brainstorming.coms.kleos.activities;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -50,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
     private SlidingRootNav slidingRootNav;
 
+    Typeface cav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +59,10 @@ public class HomeActivity extends AppCompatActivity {
         customType(this, "fadein-to-fadeout");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        cav = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/caviardreams.ttf");
         preferences = new UserPreferences(this);
 
         mainLayout = findViewById(R.id.activity_home);
-
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -85,7 +86,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         homeTextview = findViewById(R.id.kleos);
-
+        homeTextview.setTypeface(cav);
         bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setOnMenuItemClickListener(new BottomNavigation.OnMenuItemSelectionListener() {
             @Override
@@ -203,14 +204,14 @@ public class HomeActivity extends AppCompatActivity {
         View v = slidingRootNav.getLayout().getChildAt(0);
         CircleImageView imageView = v.findViewById(R.id.drawerImg);
         imageView.setImageURI(preferences.getProfileImage());
-        TextView nameV = v.findViewById(R.id.drawerName);
+        TextView nameV = v.findViewById(R.id.drawerName);nameV.setTypeface(cav);
         nameV.setText(preferences.getName());
-        TextView levelV = v.findViewById(R.id.drawerLevel);
+        TextView levelV = v.findViewById(R.id.drawerLevel);levelV.setTypeface(cav);
         levelV.setText("Level ".concat(preferences.getLevel()));
-        Button logout = v.findViewById(R.id.logoutB);
+        Button logout = v.findViewById(R.id.logoutB);logout.setTypeface(cav);
 //        Button teamB =(Button) v.findViewById(R.id.teamB);
-        Button storylineB = v.findViewById(R.id.storylineB);
-        Button sponsorsB = v.findViewById(R.id.sponsorsB);
+        Button storylineB = v.findViewById(R.id.storylineB);storylineB.setTypeface(cav);
+        Button sponsorsB = v.findViewById(R.id.sponsorsB);sponsorsB.setTypeface(cav);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
